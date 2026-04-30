@@ -57,11 +57,13 @@ public partial struct BoidMoveJob : IJobEntity
             boid.Velocity += avgCohesion * Settings.CohesionWeight * DeltaTime;
         }
 
-        float3 dirToCenter = -transform.Position;
+        float3 vectorToCenter = Settings.OrbitCenter - transform.Position;
+        float distFromCenter = math.length(vectorToCenter);
 
-        if (math.length(transform.Position) > Settings.BoundaryRadius)
+        if (distFromCenter > Settings.BoundaryRadius)
         {
-            boid.Velocity += math.normalize(dirToCenter) * Settings.ReturnStrength * DeltaTime;
+            float3 dirToCenter = math.normalize(vectorToCenter);
+            boid.Velocity += dirToCenter * Settings.ReturnStrength * DeltaTime;
         }
 
         if (math.length(boid.Velocity) > boid.MaxSpeed)

@@ -148,12 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07581a7d5536d824ea32e439f3a5609a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoidSettingsAuthoring
-  SeparationWeight: 1
-  AlignmentWeight: 1
-  CohesionWeight: 1
+  SeparationWeight: 20
+  AlignmentWeight: 5
+  CohesionWeight: 2
   CellSize: 1
   BoundaryRadius: 20
   ReturnStrength: 5
+  OrbitRadius: 50
+  OrbitSpeed: 0.5
+  OrbitCenter: {x: 0, y: 0, z: 0}
 --- !u!4 &1154803162
 Transform:
   m_ObjectHideFlags: 0
